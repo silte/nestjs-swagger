@@ -872,9 +872,10 @@ describe('SwaggerExplorer', () => {
       @Get('foos/:objectId')
       @ApiParam({
         name: 'objectId',
-        enum: ParamEnum
+        enum: ParamEnum,
+        type: String,
       })
-      @ApiQuery({ name: 'order', enum: QueryEnum })
+      @ApiQuery({ name: 'order', enum: QueryEnum, type: String })
       @ApiQuery({ name: 'page', enum: ['d', 'e', 'f'], isArray: true })
       find(): Promise<Foo[]> {
         return Promise.resolve([]);
@@ -886,10 +887,11 @@ describe('SwaggerExplorer', () => {
       @Get('foos/:objectId')
       @ApiParam({
         name: 'objectId',
-        enum: ParamEnum
+        enum: ParamEnum,
+        type: String
       })
-      @ApiQuery({ name: 'order', enum: QueryEnum })
-      @ApiQuery({ name: 'page', enum: ['d', 'e', 'f'] })
+      @ApiQuery({ name: 'order', enum: QueryEnum, type: String })
+      @ApiQuery({ name: 'page', enum: ['d', 'e', 'f'], type: String })
       find(): Promise<Foo[]> {
         return Promise.resolve([]);
       }
@@ -901,9 +903,10 @@ describe('SwaggerExplorer', () => {
       @ApiParam({
         name: 'objectId',
         enum: ParamEnum,
-        enumName: 'ParamEnum'
+        enumName: 'ParamEnum',
+        type: String,
       })
-      @ApiQuery({ name: 'order', enum: QueryEnum, enumName: 'QueryEnum' })
+      @ApiQuery({ name: 'order', enum: QueryEnum, enumName: 'QueryEnum', type: String })
       @ApiQuery({
         name: 'page',
         enum: QueryEnum,
